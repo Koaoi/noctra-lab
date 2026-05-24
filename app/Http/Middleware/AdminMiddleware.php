@@ -10,8 +10,14 @@ class AdminMiddleware
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->check() || auth()->user()->role !== 'admin') {
-            abort(403, 'Unauthorized. Admin access only.');
+        if (!auth()->check()) {
+            return redirect()
+                ->route('login')
+                ->with('error', 'Silakan login terlebih dahulu.');
+        }
+
+        if (auth()->user()->role !== 'admin') {
+            abort(403, 'Akses ditolak. Halaman ini hanya untuk Admin.');
         }
 
         return $next($request);
