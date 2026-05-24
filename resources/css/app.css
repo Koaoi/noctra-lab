@@ -1,0 +1,693 @@
+/* ============================================
+   NOCTRA LAB — Dark Streetwear Theme
+   Custom CSS over Bootstrap 5
+   ============================================ */
+
+:root {
+    --noctra-black:     #0a0a0a;
+    --noctra-dark:      #111111;
+    --noctra-card:      #1a1a1a;
+    --noctra-border:    #2a2a2a;
+    --noctra-muted:     #3a3a3a;
+    --noctra-gray:      #888888;
+    --noctra-silver:    #c0c0c0;
+    --noctra-white:     #f5f5f5;
+    --noctra-accent:    #ffffff;
+    --noctra-red:       #e53e3e;
+    --noctra-gold:      #d4a843;
+    --transition-fast:  150ms ease;
+    --transition-base:  250ms ease;
+    --transition-slow:  400ms ease;
+}
+
+/* === BASE === */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--noctra-black);
+    color: var(--noctra-white);
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--noctra-white);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--noctra-silver);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--noctra-white);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.noctra-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--noctra-gray);
+}
+
+/* === NAVBAR === */
+.noctra-navbar {
+    background-color: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--noctra-border);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    transition: background-color var(--transition-base);
+}
+
+.noctra-navbar .navbar-brand {
+    font-size: 1.25rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--noctra-white);
+}
+
+.noctra-navbar .nav-link {
+    color: var(--noctra-silver) !important;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem !important;
+    transition: color var(--transition-fast);
+}
+
+.noctra-navbar .nav-link:hover,
+.noctra-navbar .nav-link.active {
+    color: var(--noctra-white) !important;
+}
+
+.noctra-navbar .cart-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--noctra-white);
+    color: var(--noctra-black);
+    font-size: 10px;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* === BUTTONS === */
+.btn-noctra {
+    background: var(--noctra-white);
+    color: var(--noctra-black);
+    border: none;
+    padding: 0.75rem 2rem;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 0;
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.btn-noctra:hover {
+    background: var(--noctra-silver);
+    color: var(--noctra-black);
+    transform: translateY(-1px);
+}
+
+.btn-noctra-outline {
+    background: transparent;
+    color: var(--noctra-white);
+    border: 1px solid var(--noctra-white);
+    padding: 0.75rem 2rem;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 0;
+    transition: all var(--transition-base);
+}
+
+.btn-noctra-outline:hover {
+    background: var(--noctra-white);
+    color: var(--noctra-black);
+}
+
+.btn-noctra-dark {
+    background: var(--noctra-card);
+    color: var(--noctra-white);
+    border: 1px solid var(--noctra-border);
+    padding: 0.6rem 1.5rem;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 0;
+    transition: all var(--transition-base);
+}
+
+.btn-noctra-dark:hover {
+    background: var(--noctra-muted);
+    color: var(--noctra-white);
+    border-color: var(--noctra-gray);
+}
+
+/* === PRODUCT CARD === */
+.product-card {
+    background: var(--noctra-card);
+    border: 1px solid var(--noctra-border);
+    border-radius: 0;
+    overflow: hidden;
+    transition: border-color var(--transition-base), transform var(--transition-base);
+    position: relative;
+}
+
+.product-card:hover {
+    border-color: var(--noctra-gray);
+    transform: translateY(-4px);
+}
+
+.product-card .card-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    background: var(--noctra-muted);
+}
+
+.product-card .card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.product-card:hover .card-img-wrapper img {
+    transform: scale(1.05);
+}
+
+.product-card .card-body {
+    padding: 1rem;
+    border-top: 1px solid var(--noctra-border);
+}
+
+.product-card .product-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--noctra-white);
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-card .product-price {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--noctra-white);
+}
+
+.product-card .product-category {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--noctra-gray);
+    margin-bottom: 0.5rem;
+}
+
+/* === PRODUCT BADGES === */
+.badge-limited {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--noctra-white);
+    color: var(--noctra-black);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    z-index: 2;
+}
+
+.badge-soldout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 10, 10, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.badge-soldout span {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--noctra-white);
+    border: 1px solid var(--noctra-white);
+    padding: 8px 20px;
+}
+
+.badge-status {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 0;
+}
+
+.badge-available    { background: #1a3a1a; color: #5cb85c; border: 1px solid #2a5a2a; }
+.badge-preorder     { background: #1a2a3a; color: #5bc0de; border: 1px solid #2a4a6a; }
+.badge-coming-soon  { background: #3a3a1a; color: #f0ad4e; border: 1px solid #5a5a2a; }
+.badge-sold-out     { background: #3a1a1a; color: #d9534f; border: 1px solid #5a2a2a; }
+
+/* === HERO SECTION === */
+.hero-section {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    background: var(--noctra-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(10,10,10,0.9) 0%, rgba(26,26,26,0.7) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--noctra-gray);
+    margin-bottom: 1rem;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--noctra-white);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    color: var(--noctra-gray);
+    max-width: 480px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+/* === COUNTDOWN === */
+.countdown-wrap {
+    display: inline-flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border: 1px solid var(--noctra-border);
+    background: var(--noctra-card);
+    margin-bottom: 2rem;
+}
+
+.countdown-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 44px;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--noctra-white);
+    line-height: 1;
+}
+
+.countdown-unit small {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--noctra-gray);
+    margin-top: 4px;
+}
+
+/* === FORMS === */
+.form-control-noctra {
+    background: var(--noctra-card);
+    border: 1px solid var(--noctra-border);
+    color: var(--noctra-white);
+    border-radius: 0;
+    padding: 0.75rem 1rem;
+    font-size: 14px;
+    transition: border-color var(--transition-fast);
+}
+
+.form-control-noctra:focus {
+    background: var(--noctra-card);
+    border-color: var(--noctra-gray);
+    color: var(--noctra-white);
+    box-shadow: none;
+    outline: none;
+}
+
+.form-control-noctra::placeholder {
+    color: var(--noctra-muted);
+}
+
+.form-label-noctra {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--noctra-gray);
+    margin-bottom: 0.5rem;
+}
+
+.form-select-noctra {
+    background: var(--noctra-card);
+    border: 1px solid var(--noctra-border);
+    color: var(--noctra-white);
+    border-radius: 0;
+    padding: 0.75rem 1rem;
+    font-size: 14px;
+    appearance: none;
+}
+
+.form-select-noctra:focus {
+    background: var(--noctra-card);
+    border-color: var(--noctra-gray);
+    color: var(--noctra-white);
+    box-shadow: none;
+}
+
+/* === ADMIN SIDEBAR === */
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+    background: var(--noctra-black);
+}
+
+.admin-sidebar {
+    width: 260px;
+    min-height: 100vh;
+    background: var(--noctra-dark);
+    border-right: 1px solid var(--noctra-border);
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.admin-sidebar .sidebar-brand {
+    padding: 1.5rem 1.5rem 1rem;
+    border-bottom: 1px solid var(--noctra-border);
+}
+
+.admin-sidebar .sidebar-brand h5 {
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--noctra-white);
+    margin: 0;
+}
+
+.admin-sidebar .sidebar-brand small {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--noctra-gray);
+}
+
+.admin-sidebar .sidebar-section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--noctra-muted);
+    padding: 1rem 1.5rem 0.4rem;
+}
+
+.admin-sidebar .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1.5rem;
+    color: var(--noctra-gray);
+    font-size: 13px;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    border-left: 2px solid transparent;
+}
+
+.admin-sidebar .sidebar-link:hover {
+    color: var(--noctra-white);
+    background: rgba(255,255,255,0.04);
+}
+
+.admin-sidebar .sidebar-link.active {
+    color: var(--noctra-white);
+    border-left-color: var(--noctra-white);
+    background: rgba(255,255,255,0.06);
+}
+
+.admin-content {
+    flex: 1;
+    padding: 2rem;
+    overflow-x: hidden;
+}
+
+/* === ADMIN CARDS === */
+.stat-card {
+    background: var(--noctra-card);
+    border: 1px solid var(--noctra-border);
+    border-radius: 0;
+    padding: 1.5rem;
+    transition: border-color var(--transition-fast);
+}
+
+.stat-card:hover {
+    border-color: var(--noctra-gray);
+}
+
+.stat-card .stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--noctra-white);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.stat-card .stat-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--noctra-gray);
+}
+
+/* === ADMIN TABLE === */
+.table-noctra {
+    color: var(--noctra-white);
+    border-color: var(--noctra-border);
+}
+
+.table-noctra thead tr th {
+    background: var(--noctra-dark);
+    border-color: var(--noctra-border);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--noctra-gray);
+    padding: 0.875rem 1rem;
+}
+
+.table-noctra tbody tr {
+    border-color: var(--noctra-border);
+    transition: background var(--transition-fast);
+}
+
+.table-noctra tbody tr:hover {
+    background: rgba(255,255,255,0.03);
+}
+
+.table-noctra tbody td {
+    padding: 0.875rem 1rem;
+    border-color: var(--noctra-border);
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+/* === TOAST === */
+.toast-noctra {
+    background: var(--noctra-dark);
+    border: 1px solid var(--noctra-border);
+    border-radius: 0;
+    color: var(--noctra-white);
+    min-width: 280px;
+}
+
+.toast-noctra .toast-header {
+    background: var(--noctra-card);
+    border-bottom: 1px solid var(--noctra-border);
+    color: var(--noctra-white);
+}
+
+/* === SECTION UTILS === */
+.section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--noctra-gray);
+    margin-bottom: 0.75rem;
+}
+
+.section-heading {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--noctra-white);
+    text-transform: uppercase;
+}
+
+.divider-noctra {
+    border: none;
+    border-top: 1px solid var(--noctra-border);
+    margin: 2rem 0;
+}
+
+.noctra-section {
+    padding: 5rem 0;
+}
+
+/* === FOOTER === */
+.noctra-footer {
+    background: var(--noctra-dark);
+    border-top: 1px solid var(--noctra-border);
+    padding: 3rem 0 1.5rem;
+    color: var(--noctra-gray);
+    font-size: 13px;
+}
+
+.noctra-footer h6 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--noctra-white);
+    margin-bottom: 1rem;
+}
+
+/* === OVERRIDES BOOTSTRAP === */
+.dropdown-menu {
+    background: var(--noctra-dark);
+    border: 1px solid var(--noctra-border);
+    border-radius: 0;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+.dropdown-item {
+    color: var(--noctra-silver);
+    font-size: 13px;
+    padding: 0.5rem 1.25rem;
+}
+
+.dropdown-item:hover {
+    background: var(--noctra-card);
+    color: var(--noctra-white);
+}
+
+.pagination .page-link {
+    background: var(--noctra-card);
+    border-color: var(--noctra-border);
+    color: var(--noctra-gray);
+    border-radius: 0 !important;
+}
+
+.pagination .page-link:hover {
+    background: var(--noctra-muted);
+    border-color: var(--noctra-gray);
+    color: var(--noctra-white);
+}
+
+.pagination .page-item.active .page-link {
+    background: var(--noctra-white);
+    border-color: var(--noctra-white);
+    color: var(--noctra-black);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .admin-sidebar {
+        width: 100%;
+        min-height: auto;
+        position: relative;
+        height: auto;
+    }
+
+    .admin-wrapper {
+        flex-direction: column;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .noctra-section {
+        padding: 3rem 0;
+    }
+}
